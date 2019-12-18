@@ -1,10 +1,12 @@
-Title: OX
-Author: Kamil Bieganski
+OX
+------
+Author: Kamil Biegański
+
 Version: 0.1
 
 To run project you have to use:
-- bash or other compatible unix shell
-- jdk version openjdk 11.0.5 2019-10-15
-- maven version 
+- jdk version 11.0.5
+- maven version 3.6.3
 
-To build project simply run "mvn package" command, to make it work run "java -cp target/OX-0.1.jar com.bieganski.OX"
+To build project simply run "mvn package" command, to make it work run "java -jar target/ox-0.1.jar"
+
