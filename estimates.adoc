@@ -1,0 +1,9 @@
+# Tic tac toe (OX)
+
+|===
+|*Date*|*Pessimistic*|*Realistic*|*Optimistic*
+|18.12.2019
+|Creating project, adding to remote repository with collaborators + CRC cards + flow diagram
+|+ Drawing board with given parameters
+|+ Player input validation + Asking players who starts
+|===
