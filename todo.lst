@@ -1,0 +1,9 @@
+-draw a board
+-game settings
+-player input
+-player input validation
+
+User Interface
+-throw exception when player insert letter instead of number
+-throw exception when you want to print null
+

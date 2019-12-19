@@ -6,4 +6,8 @@
 |Creating project, adding to remote repository with collaborators + CRC cards + flow diagram
 |+ Drawing board with given parameters
 |+ Player input validation + Asking players who starts
+|19.12.2019
+|
+|
+|
 |===
