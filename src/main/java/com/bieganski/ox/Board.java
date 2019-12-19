@@ -11,7 +11,7 @@ class Board {
         this.size = size;
     }
 
-    void addFiled(Field field) throws FieldIsNotEmptyException {
+    void addField(Field field) throws FieldIsNotEmptyException {
         if (fields.contains(field))
             throw new FieldIsNotEmptyException("You can't add existing field");
         fields.add(field);
@@ -21,9 +21,9 @@ class Board {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         Field field = fields.first();
-        for (int y = 0; y < size; y++) {
-            for (int x = 0; x < size; x++) {
-                if (checkIsFiledOnGivenCoordinates(field, new Coordinates(x + 1, y + 1))) {
+        for (int row = 0; row < size; row++) {
+            for (int column = 0; column < size; column++) {
+                if (checkIsFieldOnGivenCoordinates(field, new Coordinates(column + 1, row + 1))) {
                     appendField(stringBuilder, field);
                     field = fields.higher(field);
                 } else {
@@ -35,15 +35,17 @@ class Board {
         return stringBuilder.toString();
     }
 
+//    private String checkValueOfField(Field field){
+//
+//    }
+
     private void appendField(StringBuilder builder, Field field) {
         builder.append("[");
         builder.append(field);
         builder.append("]");
     }
 
-    private boolean checkIsFiledOnGivenCoordinates(Field field, Coordinates coordinates) {
-        if (field == null)
-            return false;
-        return field.isOnGivenCoordinates(coordinates);
+    private boolean checkIsFieldOnGivenCoordinates(Field field, Coordinates coordinates) {
+        return field != null && field.isOnGivenCoordinates(coordinates);
     }
 }

@@ -2,41 +2,34 @@ package com.bieganski.ox;
 
 import java.util.Objects;
 
-public class Coordinates implements Comparable<Coordinates> {
-    private int x;
-    private int y;
+class Coordinates implements Comparable<Coordinates> {
+    private int column;
+    private int row;
 
-    public Coordinates(int x, int y) {
-        this.x = x;
-        this.y = y;
+    Coordinates(int column, int row) {
+        this.column = column;
+        this.row = row;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Coordinates that = (Coordinates) o;
-        System.out.println(that);
-        return x == that.x &&
-                y == that.y;
+        return column == that.column && row == that.row;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return Objects.hash(column, row);
     }
 
     @Override
     public int compareTo(Coordinates coordinates) {
-        int compareY = Integer.compare(coordinates.y, y);
-        return compareY == 0 ? Integer.compare(coordinates.x, x) : compareY;
+        int compareY = Integer.compare(coordinates.row, row);
+        return compareY == 0 ? Integer.compare(coordinates.column, column) : compareY;
     }
 
     @Override
     public String toString() {
-        return "Coordinates{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return String.format("column: <%s> row: <%s>", column, row);
     }
 }

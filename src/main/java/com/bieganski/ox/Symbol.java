@@ -1,5 +1,5 @@
 package com.bieganski.ox;
 
-public enum Symbol {
+enum Symbol {
     X, O
 }

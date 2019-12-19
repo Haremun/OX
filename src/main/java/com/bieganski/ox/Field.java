@@ -2,12 +2,12 @@ package com.bieganski.ox;
 
 import java.util.Objects;
 
-public class Field implements Comparable<Field> {
+class Field implements Comparable<Field> {
 
     private Coordinates coordinates;
     private Symbol symbol;
 
-    public Field(Coordinates coordinates, Symbol symbol) {
+    Field(Coordinates coordinates, Symbol symbol) {
         this.coordinates = coordinates;
         this.symbol = symbol;
     }

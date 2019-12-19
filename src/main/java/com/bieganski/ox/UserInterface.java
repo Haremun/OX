@@ -1,6 +1,6 @@
 package com.bieganski.ox;
 
-public interface UserInterface {
+interface UserInterface {
     void print(Object object);
 
 }
