@@ -11,22 +11,21 @@ class Board {
         this.size = size;
     }
 
-    void addFiled() {
-        fields.add(new Field(new Coordinates(3, 3), 'X'));
-        fields.add(new Field(new Coordinates(1, 1), 'O'));
-        fields.add(new Field(new Coordinates(1, 8), 'X'));
-        fields.add(new Field(new Coordinates(4, 5), 'O'));
+    void addFiled(Field field) throws FieldIsNotEmptyException {
+        if (fields.contains(field))
+            throw new FieldIsNotEmptyException("You can't add existing field");
+        fields.add(field);
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        Field field = fields.pollFirst();
+        Field field = fields.first();
         for (int y = 0; y < size; y++) {
             for (int x = 0; x < size; x++) {
                 if (checkIsFiledOnGivenCoordinates(field, new Coordinates(x + 1, y + 1))) {
                     appendField(stringBuilder, field);
-                    field = fields.pollFirst();
+                    field = fields.higher(field);
                 } else {
                     stringBuilder.append("[ ]");
                 }

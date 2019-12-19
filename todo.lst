@@ -7,3 +7,10 @@ User Interface
 -throw exception when player insert letter instead of number
 -throw exception when you want to print null
 
+-------------filed is not on given coordinates
+-------------field is on given coordinates
+adding existing filed should throw exception
+
+-coordinates are out of board bounds
+
+-default settings
