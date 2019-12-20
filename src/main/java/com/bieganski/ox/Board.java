@@ -24,7 +24,7 @@ class Board {
         Field field = fields.first();
         for (int row = 0; row < size; row++) {
             for (int column = 0; column < size; column++) {
-                if (checkIsFieldOnGivenCoordinates(field, new Coordinates(column + 1, row + 1))) {
+                if (checkIsFieldOnGivenPosition(field, (row * size) + column)) {
                     appendField(stringBuilder, field);
                     field = fields.higher(field);
                 } else {
@@ -46,7 +46,7 @@ class Board {
         builder.append("]");
     }
 
-    private boolean checkIsFieldOnGivenCoordinates(Field field, Coordinates coordinates) {
-        return field != null && field.isOnGivenCoordinates(coordinates);
+    private boolean checkIsFieldOnGivenPosition(Field field, int position) {
+        return field != null && field.isOnGivenPosition(position);
     }
 }

@@ -4,22 +4,22 @@ import java.util.Objects;
 
 class Field implements Comparable<Field> {
 
-    private Coordinates coordinates;
+    private int position;
     private Symbol symbol;
 
-    Field(Coordinates coordinates, Symbol symbol) {
-        this.coordinates = coordinates;
+    Field(int position, Symbol symbol) {
+        this.position = position;
         this.symbol = symbol;
     }
 
 
-    boolean isOnGivenCoordinates(Coordinates coordinates) {
-        return coordinates.equals(this.coordinates);
+    boolean isOnGivenPosition(int position) {
+        return this.position == position;
     }
 
     @Override
     public int compareTo(Field field) {
-        return field.coordinates.compareTo(this.coordinates);
+        return Integer.compare(position, field.position);
     }
 
 
@@ -28,12 +28,12 @@ class Field implements Comparable<Field> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Field field = (Field) o;
-        return coordinates.equals(field.coordinates);
+        return position == field.position;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coordinates, symbol);
+        return Objects.hash(position, symbol);
     }
 
     @Override
