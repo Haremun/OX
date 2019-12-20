@@ -4,49 +4,33 @@ import java.util.TreeSet;
 
 class Board {
     private int size;
-    private TreeSet<Field> fields;
+    private TreeSet<Field> occupiedFields;
+    private BoardPrinter boardPrinter;
 
     Board(int size) {
-        fields = new TreeSet<>();
+        this.occupiedFields = new TreeSet<>();
         this.size = size;
+        this.boardPrinter = null;
+    }
+
+    Board(int size, BoardPrinter boardPrinter) {
+        this.occupiedFields = new TreeSet<>();
+        this.size = size;
+        this.boardPrinter = boardPrinter;
+        this.boardPrinter.print(occupiedFields, size);
     }
 
     boolean addField(Field field) {
-        if (fields.contains(field))
+        if (occupiedFields.contains(field) || !field.isInBounds(size * size))
             return false;
-        fields.add(field);
+        occupiedFields.add(field);
+        if (boardPrinter != null)
+            boardPrinter.print(occupiedFields, size);
         return true;
     }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        Field field = fields.first();
-        for (int row = 0; row < size; row++) {
-            for (int column = 0; column < size; column++) {
-                if (checkIsFieldOnGivenPosition(field, (row * size) + column)) {
-                    appendField(stringBuilder, field);
-                    field = fields.higher(field);
-                } else {
-                    stringBuilder.append("[ ]");
-                }
-            }
-            stringBuilder.append("\n");
-        }
-        return stringBuilder.toString();
-    }
-
-//    private String checkValueOfField(Field field){
-//
-//    }
-
-    private void appendField(StringBuilder builder, Field field) {
-        builder.append("[");
-        builder.append(field);
-        builder.append("]");
-    }
-
-    private boolean checkIsFieldOnGivenPosition(Field field, int position) {
-        return field != null && field.isOnGivenPosition(position);
+        return occupiedFields.toString();
     }
 }

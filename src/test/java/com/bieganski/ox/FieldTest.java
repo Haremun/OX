@@ -10,20 +10,18 @@ public class FieldTest {
     @Test
     public void testFieldIsOnGivenCoordinates(){
         //Given
-        Field field = new Field(new Coordinates(3, 3), Symbol.X);
-        Coordinates coordinates = new Coordinates(3, 3);
+        Field field = new Field(3, Symbol.X);
         //When
-        boolean isOnGivenCoordinates = field.isOnGivenCoordinates(coordinates);
+        boolean isOnGivenCoordinates = field.isOnPosition(3);
         //Then
         assertTrue(isOnGivenCoordinates);
     }
     @Test
     public void testFieldIsNotOnGivenCoordinates(){
         //Given
-        Field field = new Field(new Coordinates(3, 3), Symbol.X);
-        Coordinates coordinates = new Coordinates(5, 5);
+        Field field = new Field(3, Symbol.X);
         //When
-        boolean isOnGivenCoordinates = field.isOnGivenCoordinates(coordinates);
+        boolean isOnGivenCoordinates = field.isOnPosition(5);
         //Then
         assertFalse(isOnGivenCoordinates);
     }

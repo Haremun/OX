@@ -13,7 +13,7 @@ class Field implements Comparable<Field> {
     }
 
 
-    boolean isOnGivenPosition(int position) {
+    boolean isOnPosition(int position) {
         return this.position == position;
     }
 
@@ -39,5 +39,9 @@ class Field implements Comparable<Field> {
     @Override
     public String toString() {
         return String.valueOf(symbol);
+    }
+
+    public boolean isInBounds(int bounds) {
+        return position < bounds && position >= 0;
     }
 }
