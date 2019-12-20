@@ -11,10 +11,11 @@ class Board {
         this.size = size;
     }
 
-    void addField(Field field) throws FieldIsNotEmptyException {
+    boolean addField(Field field) {
         if (fields.contains(field))
-            throw new FieldIsNotEmptyException("You can't add existing field");
+            return false;
         fields.add(field);
+        return true;
     }
 
     @Override
