@@ -2,10 +2,10 @@ package com.bieganski.ox;
 
 import java.util.TreeSet;
 
-public class BoardPrinter {
+class BoardPrinter {
     private UserInterface userInterface;
 
-    public BoardPrinter(UserInterface userInterface) {
+    BoardPrinter(UserInterface userInterface) {
         this.userInterface = userInterface;
     }
 
@@ -28,6 +28,6 @@ public class BoardPrinter {
                 stringBuilder.append("\n");
         }
 
-        userInterface.refreshAndPrint(stringBuilder.toString());
+        userInterface.println(stringBuilder.toString());
     }
 }

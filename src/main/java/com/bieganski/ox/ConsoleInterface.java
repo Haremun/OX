@@ -13,13 +13,8 @@ class ConsoleInterface implements UserInterface {
     }
 
     @Override
-    public void print(Object object) {
+    public void println(Object object) {
         out.println(object);
     }
 
-    @Override
-    public void refreshAndPrint(Object object) {
-        out.print("\033[2J\033[1;1H");
-        out.println(object);
-    }
 }

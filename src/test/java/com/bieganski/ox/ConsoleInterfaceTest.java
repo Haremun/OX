@@ -16,7 +16,7 @@ public class ConsoleInterfaceTest {
         UserInterface userInterface = new ConsoleInterface(null, printStream);
         String expected = "e";
         //When
-        userInterface.print(expected);
+        userInterface.println(expected);
         //Then
         Assert.assertEquals(actualOutput.toString(), expected + "\n");
     }

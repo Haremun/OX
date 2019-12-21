@@ -15,7 +15,6 @@ public class BoardPrinterTest {
     public void testPrintsCorrectBoard() {
         //Given
         String expectedBoard =
-                "\033[2J\033[1;1H" +
                 "[ ][ ][ ][ ]\n" +
                 "[ ][X][ ][ ]\n" +
                 "[ ][ ][O][ ]\n" +

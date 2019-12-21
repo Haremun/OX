@@ -41,7 +41,7 @@ class Field implements Comparable<Field> {
         return String.valueOf(symbol);
     }
 
-    public boolean isInBounds(int bounds) {
+    boolean isInBounds(int bounds) {
         return position < bounds && position >= 0;
     }
 }

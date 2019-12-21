@@ -8,16 +8,15 @@ class Board {
     private BoardPrinter boardPrinter;
 
     Board(int size) {
-        this.occupiedFields = new TreeSet<>();
-        this.size = size;
-        this.boardPrinter = null;
+        this(size, null);
     }
 
     Board(int size, BoardPrinter boardPrinter) {
         this.occupiedFields = new TreeSet<>();
         this.size = size;
         this.boardPrinter = boardPrinter;
-        this.boardPrinter.print(occupiedFields, size);
+        if (boardPrinter != null)
+            this.boardPrinter.print(occupiedFields, size);
     }
 
     boolean addField(Field field) {
