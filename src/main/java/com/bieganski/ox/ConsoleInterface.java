@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-class ConsoleInterface implements UserInterface, BoardListener {
+class ConsoleInterface implements UserInterface {
     private Scanner scanner;
     private PrintStream out;
 
@@ -16,6 +16,11 @@ class ConsoleInterface implements UserInterface, BoardListener {
     @Override
     public void println(Object object) {
         out.println(object);
+    }
+
+    @Override
+    public String askForInput() {
+        return scanner.nextLine();
     }
 
     @Override

@@ -9,7 +9,7 @@ class App{
 		userInterface.println("Tic tac toe!");
 		//Const size, just for checking if works
 		Board board = new Board(10);
-		board.addListener((BoardListener) userInterface);
+		board.addListener(userInterface);
 		board.updateListeners();
 		board.addField(new Field(15, Symbol.X));
 	}
