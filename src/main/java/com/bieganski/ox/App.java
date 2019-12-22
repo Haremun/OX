@@ -11,9 +11,9 @@ class App {
         Board board = new Board(10);
         board.addListener(userInterface);
         board.updateListeners();
-
-        PositionCalculator positionCalculator = new PositionCalculator(10);
-
+      
+        PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(),10);
+      
         String input = userInterface.askForInput();
         if (new PositionValidator().checkString(input)) {
             board.addField(new Field(positionCalculator.calculatePosition(input), Symbol.X));

@@ -27,6 +27,6 @@ public class UserInputTest {
         //When
         String actual = userInterface.askForInput();
         //Then
-        assertEquals(actual, expected, String.format("Returned value '%s' isn't equal '%s'", actual, expected));
+        assertEquals(actual, expected);
     }
 }

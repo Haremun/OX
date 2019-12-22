@@ -22,10 +22,10 @@ class ConsoleInterface implements UserInterface {
     public String askForInput() {
         return scanner.nextLine();
     }
-
+  
     @Override
     public void onBoardUpdate(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-        BoardPainter consoleBoardPainter = new ConsoleBoardPainter();
-        println(consoleBoardPainter.paintBoard(fieldsWithValue, size));
+        println(new ConsoleBoardPainter()
+                .paintBoard(fieldsWithValue, size));
     }
 }
