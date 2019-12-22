@@ -25,7 +25,7 @@ class ConsoleInterface implements UserInterface {
 
     @Override
     public void onBoardUpdate(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-        BoardPainter boardPainter = new BoardPainter();
-        println(boardPainter.paintBoard(fieldsWithValue, size));
+        BoardPainter consoleBoardPainter = new ConsoleBoardPainter();
+        println(consoleBoardPainter.paintBoard(fieldsWithValue, size));
     }
 }
