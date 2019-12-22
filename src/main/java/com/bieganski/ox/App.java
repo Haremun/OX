@@ -13,10 +13,12 @@ class App {
         board.updateListeners();
       
         PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(),10);
-      
-        String input = userInterface.askForInput();
-        if (new PositionValidator().checkString(input)) {
-            board.addField(new Field(positionCalculator.calculatePosition(input), Symbol.X));
+        while (true) {
+            userInterface.println("Input position:");
+            String input = userInterface.askForInput();
+            if (new PositionValidator().checkString(input)) {
+                board.addField(new Field(positionCalculator.calculatePosition(input), Symbol.X));
+            }
         }
     }
 }
