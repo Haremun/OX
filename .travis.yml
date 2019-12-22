@@ -1,9 +1,9 @@
 language: java
 
 os:
-        -linux
-        -osx
-        -windowsi
+        - linux
+        - osx
+        - windows
 
 jdk:
-        -openjdk11
+        - openjdk11
