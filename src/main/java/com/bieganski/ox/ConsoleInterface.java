@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-class ConsoleInterface implements UserInterface, BoardListener {
+class ConsoleInterface implements UserInterface {
     private Scanner scanner;
     private PrintStream out;
 
@@ -19,8 +19,13 @@ class ConsoleInterface implements UserInterface, BoardListener {
     }
 
     @Override
+    public String askForInput() {
+        return scanner.nextLine();
+    }
+
+    @Override
     public void onBoardUpdate(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-        BoardPainter boardPainter = new BoardPainter();
-        println(boardPainter.paintBoard(fieldsWithValue, size));
+        BoardPainter consoleBoardPainter = new ConsoleBoardPainter();
+        println(consoleBoardPainter.paintBoard(fieldsWithValue, size));
     }
 }

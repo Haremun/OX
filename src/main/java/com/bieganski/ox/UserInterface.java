@@ -1,5 +1,7 @@
 package com.bieganski.ox;
 
-interface UserInterface {
+interface UserInterface extends BoardListener {
     void println(Object object);
+
+    String askForInput();
 }

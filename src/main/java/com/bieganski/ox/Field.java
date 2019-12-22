@@ -12,10 +12,14 @@ class Field implements Comparable<Field> {
         this.symbol = symbol;
     }
 
-
     boolean isOnPosition(int position) {
         return this.position == position;
     }
+
+    boolean isInBounds(int bounds) {
+        return position < bounds && position >= 0;
+    }
+
 
     @Override
     public int compareTo(Field field) {
@@ -41,7 +45,4 @@ class Field implements Comparable<Field> {
         return String.valueOf(symbol);
     }
 
-    boolean isInBounds(int bounds) {
-        return position < bounds && position >= 0;
-    }
 }
