@@ -17,15 +17,13 @@ class Field implements Comparable<Field> {
     }
 
     boolean isInBounds(int bounds) {
-        return position < bounds && position >= 0;
+        return 0 <= position && position < bounds;
     }
-
 
     @Override
     public int compareTo(Field field) {
         return Integer.compare(position, field.position);
     }
-
 
     @Override
     public boolean equals(Object o) {

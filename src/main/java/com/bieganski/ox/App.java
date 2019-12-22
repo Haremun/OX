@@ -12,7 +12,7 @@ class App {
         board.addListener(userInterface);
         board.updateListeners();
 
-        PositionCalculator positionCalculator = new PositionCalculator(10);
+        PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(),10);
 
         String input = userInterface.askForInput();
         if (new PositionValidator().checkString(input)) {
