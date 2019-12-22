@@ -19,7 +19,7 @@ class Field implements Comparable<Field> {
     boolean isInBounds(int bounds) {
         return 0 <= position && position < bounds;
     }
-
+  
     @Override
     public int compareTo(Field field) {
         return Integer.compare(position, field.position);
