@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 import static org.testng.Assert.assertEquals;
 
-public class BoardPainterTest {
+public class ConsoleBoardPainterTest {
 
     @Test
     public void testPrintsCorrectBoard() {
@@ -17,7 +17,7 @@ public class BoardPainterTest {
                 "[ ][ ][O][ ]\n" +
                 "[ ][ ][ ][X]\n";
 
-        BoardPainter boardPainter = new BoardPainter();
+        ConsoleBoardPainter consoleBoardPainter = new ConsoleBoardPainter();
 
         TreeSet<Field> fields = new TreeSet<>();
         fields.add(new Field(5, Symbol.X));
@@ -26,7 +26,7 @@ public class BoardPainterTest {
         int boardSize = 4;
 
         //When
-        String actualBoard = boardPainter.paintBoard(fields, boardSize);
+        String actualBoard = consoleBoardPainter.paintBoard(fields, boardSize);
         //Then
         assertEquals(actualBoard, expectedBoard);
     }
