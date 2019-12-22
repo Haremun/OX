@@ -2,7 +2,7 @@ package com.bieganski.ox;
 
 import java.util.regex.Pattern;
 
-public class PositionValidator implements Validator {
+class PositionValidator implements Validator {
 
     @Override
     public boolean checkString(String textToValidate) {

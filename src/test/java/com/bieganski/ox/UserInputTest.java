@@ -21,7 +21,6 @@ public class UserInputTest {
 
     @Test(dataProvider = "inputProviderFromAscii")
     public void testUserInputsCoordinatesShouldReturnTheSameCoordinates(String expected) {
-        System.out.println(expected);
         //Given
         Scanner scanner = new Scanner(expected);
         UserInterface userInterface = new ConsoleInterface(scanner, null);

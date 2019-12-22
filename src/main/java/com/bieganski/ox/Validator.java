@@ -1,5 +1,5 @@
 package com.bieganski.ox;
 
-public interface Validator {
+interface Validator {
     boolean checkString(String textToValidate);
 }
