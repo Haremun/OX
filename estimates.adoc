@@ -1,0 +1,29 @@
+= Tic tac toe (OX)
+
+|===
+|*Date*|*Pessimistic*|*Realistic*|*Optimistic*
+|18.12.2019
+|Creating project, adding to remote repository with collaborators + CRC cards + flow diagram
+|+ Drawing board with given parameters
+|+ Player input + Asking players who starts
+|19.12.2019
+|Drawing board
+|Player input + creating player
+|Player input validation
+|20.12.2019
+|Player input + creating player
+|Player input validation
+|
+|21.12.2019
+|UI(showing game status) + player input validation
+|Game settings and set up
+|
+|22.12.2019
+|
+|Check for win a game
+|Showing final score
+|23.12.2019
+|Showing final score
+|Languages
+|
+|===
