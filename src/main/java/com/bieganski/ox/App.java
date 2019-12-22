@@ -7,8 +7,10 @@ class App{
 		Scanner scanner = new Scanner(System.in);
 		UserInterface userInterface = new ConsoleInterface(scanner, System.out);
 		userInterface.println("Tic tac toe!");
-		BoardPrinter boardPrinter = new BoardPrinter(userInterface);
 		//Const size, just for checking if works
-		Board board = new Board(10, boardPrinter);
+		Board board = new Board(10);
+		board.addListener((BoardListener) userInterface);
+		board.updateListeners();
+		board.addField(new Field(15, Symbol.X));
 	}
 }

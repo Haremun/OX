@@ -2,14 +2,8 @@ package com.bieganski.ox;
 
 import java.util.TreeSet;
 
-class BoardPrinter {
-    private UserInterface userInterface;
-
-    BoardPrinter(UserInterface userInterface) {
-        this.userInterface = userInterface;
-    }
-
-    void print(TreeSet<Field> fieldsWithValues, int boardSide) {
+class BoardPainter {
+    String paintBoard(TreeSet<Field> fieldsWithValues, int boardSide) {
         StringBuilder stringBuilder = new StringBuilder();
         Field fieldWithValue = null;
         if (!fieldsWithValues.isEmpty())
@@ -28,6 +22,6 @@ class BoardPrinter {
                 stringBuilder.append("\n");
         }
 
-        userInterface.println(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 }

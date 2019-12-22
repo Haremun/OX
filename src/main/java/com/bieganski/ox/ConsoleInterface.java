@@ -2,8 +2,9 @@ package com.bieganski.ox;
 
 import java.io.PrintStream;
 import java.util.Scanner;
+import java.util.TreeSet;
 
-class ConsoleInterface implements UserInterface {
+class ConsoleInterface implements UserInterface, BoardListener {
     private Scanner scanner;
     private PrintStream out;
 
@@ -17,4 +18,9 @@ class ConsoleInterface implements UserInterface {
         out.println(object);
     }
 
+    @Override
+    public void onBoardUpdate(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
+        BoardPainter boardPainter = new BoardPainter();
+        println(boardPainter.paintBoard(fieldsWithValue, size));
+    }
 }
