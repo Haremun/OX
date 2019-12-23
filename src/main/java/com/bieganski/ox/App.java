@@ -7,8 +7,8 @@ class App {
         Scanner scanner = new Scanner(System.in);
         UserInterface userInterface = new ConsoleInterface(scanner, System.out);
         userInterface.println("Tic tac toe!");
-        //Const size, just for checking if works
-        GameFlow gameFlow = new GameFlow(userInterface, 10);
+        //TODO: change const values ,create game setup
+        GameFlow gameFlow = new GameFlow(userInterface, 200);
         new Thread(gameFlow).start();
 
     }
