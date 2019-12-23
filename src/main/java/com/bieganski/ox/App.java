@@ -8,17 +8,8 @@ class App {
         UserInterface userInterface = new ConsoleInterface(scanner, System.out);
         userInterface.println("Tic tac toe!");
         //Const size, just for checking if works
-        Board board = new Board(10);
-        board.addListener(userInterface);
-        board.updateListeners();
-      
-        PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(),10);
-        while (true) {
-            userInterface.println("Input position:");
-            String input = userInterface.askForInput();
-            if (new PositionValidator().checkString(input)) {
-                board.addField(new Field(positionCalculator.calculatePosition(input), Symbol.X));
-            }
-        }
+        GameFlow gameFlow = new GameFlow(userInterface, 10);
+        new Thread(gameFlow).start();
+
     }
 }
