@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import java.util.stream.IntStream;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.fail;
 
 
 public class BoardTest {

@@ -12,7 +12,7 @@ public class ConsoleBoardPainterTest {
     public void testPrintsCorrectBoard() {
         //Given
         String expectedBoard =
-                "  0  1  2  3 \n" +
+                "    0  1  2  3 \n" +
                         " 0 [ ][ ][ ][ ]\n" +
                         " 1 [ ][X][ ][ ]\n" +
                         " 2 [ ][ ][O][ ]\n" +

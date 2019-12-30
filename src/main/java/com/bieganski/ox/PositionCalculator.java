@@ -15,6 +15,11 @@ class PositionCalculator {
         String[] coordinates = userInput.split(" ");
         String row = coordinates[0];
         String column = coordinates[1];
-        return Integer.parseInt(row) * boardSize + Integer.parseInt(column);
+        try {
+            return Integer.parseInt(row) * boardSize + Integer.parseInt(column);
+        } catch (NumberFormatException ex){
+            App.LOG.warn("User provided incorrect number");
+            return -1;
+        }
     }
 }
