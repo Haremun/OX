@@ -8,13 +8,15 @@ class IndexCreator {
     }
 
     void indexColumns(StringBuilder stringBuilder) {
-        stringBuilder.append(createSpaces(boardSide));
+        stringBuilder.append(createSpaces());
         for (int i = 0; i < boardSide; i++) {
             nextIndex(stringBuilder, i);
         }
         stringBuilder.append("\n");
     }
-    void nextIndex(StringBuilder stringBuilder, int index){
+  
+    void nextIndex(StringBuilder stringBuilder, int index) {
+
         if (index < 10)
             stringBuilder.append(String.format(" %s ", index));
         else if (index < 100)
@@ -22,8 +24,8 @@ class IndexCreator {
         else
             stringBuilder.append(String.format("%s", index));
     }
-    private String createSpaces(int size){
-        int maxIndexLength = String.valueOf(size - 1).length();
-        return " ".repeat(maxIndexLength);
+  
+    private String createSpaces() {
+        return " ".repeat(3);
     }
 }

@@ -21,6 +21,7 @@ class Board {
             return false;
         occupiedFields.add(field);
         listeners.forEach(x -> x.onBoardUpdate(occupiedFields, field, size));
+        App.LOG.info("Player made move: " + field);
         return true;
     }
 
