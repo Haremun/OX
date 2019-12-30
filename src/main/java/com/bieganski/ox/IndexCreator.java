@@ -14,8 +14,9 @@ class IndexCreator {
         }
         stringBuilder.append("\n");
     }
-
+  
     void nextIndex(StringBuilder stringBuilder, int index) {
+
         if (index < 10)
             stringBuilder.append(String.format(" %s ", index));
         else if (index < 100)
@@ -23,7 +24,7 @@ class IndexCreator {
         else
             stringBuilder.append(String.format("%s", index));
     }
-
+  
     private String createSpaces() {
         return " ".repeat(3);
     }
