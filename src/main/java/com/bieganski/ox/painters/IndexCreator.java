@@ -1,4 +1,4 @@
-package com.bieganski.ox;
+package com.bieganski.ox.painters;
 
 class IndexCreator {
     private int boardSide;

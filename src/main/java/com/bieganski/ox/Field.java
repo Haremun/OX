@@ -2,7 +2,7 @@ package com.bieganski.ox;
 
 import java.util.Objects;
 
-class Field implements Comparable<Field> {
+public class Field implements Comparable<Field> {
 
     private int position;
     private Symbol symbol;
@@ -12,14 +12,22 @@ class Field implements Comparable<Field> {
         this.symbol = symbol;
     }
 
-    boolean isOnPosition(int position) {
+    public boolean isOnPosition(int position) {
         return this.position == position;
     }
 
     boolean isInBounds(int bounds) {
         return 0 <= position && position < bounds;
     }
-  
+
+    public boolean areSymbolsEquals(Field field) {
+        return this.symbol.equals(field.symbol);
+    }
+
+    public int distanceToField(Field field) {
+        return Math.abs(this.position - field.position);
+    }
+
     @Override
     public int compareTo(Field field) {
         return Integer.compare(position, field.position);
@@ -42,5 +50,4 @@ class Field implements Comparable<Field> {
     public String toString() {
         return String.valueOf(symbol);
     }
-
 }

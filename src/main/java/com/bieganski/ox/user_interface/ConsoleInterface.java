@@ -1,14 +1,17 @@
-package com.bieganski.ox;
+package com.bieganski.ox.user_interface;
+
+import com.bieganski.ox.Field;
+import com.bieganski.ox.painters.ConsoleBoardPainter;
 
 import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-class ConsoleInterface implements UserInterface {
+public class ConsoleInterface implements UserInterface {
     private Scanner scanner;
     private PrintStream out;
 
-    ConsoleInterface(Scanner scanner, PrintStream printStream) {
+    public ConsoleInterface(Scanner scanner, PrintStream printStream) {
         this.scanner = scanner;
         this.out = printStream;
     }

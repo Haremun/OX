@@ -1,5 +1,6 @@
 package com.bieganski.ox;
 
+import com.bieganski.ox.painters.ConsoleBoardPainter;
 import org.testng.annotations.Test;
 
 import java.util.TreeSet;
