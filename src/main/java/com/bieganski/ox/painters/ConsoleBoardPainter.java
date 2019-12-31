@@ -1,8 +1,10 @@
-package com.bieganski.ox;
+package com.bieganski.ox.painters;
+
+import com.bieganski.ox.Field;
 
 import java.util.TreeSet;
 
-class ConsoleBoardPainter implements BoardPainter {
+public class ConsoleBoardPainter implements BoardPainter {
 
     //TODO: Too long function
     @Override
