@@ -27,7 +27,6 @@ public class Field implements Comparable<Field> {
     public int distanceToField(Field field) {
         return Math.abs(this.position - field.position);
     }
-
     @Override
     public int compareTo(Field field) {
         return Integer.compare(position, field.position);

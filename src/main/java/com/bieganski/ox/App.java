@@ -24,6 +24,5 @@ public class App {
         //TODO: change const values ,create game setup
         GameFlow gameFlow = new GameFlow(userInterface, Integer.parseInt(args[0]));
         new Thread(gameFlow).start();
-
     }
 }
