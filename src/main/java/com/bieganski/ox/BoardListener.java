@@ -2,6 +2,7 @@ package com.bieganski.ox;
 
 import java.util.TreeSet;
 
-interface BoardListener {
+public interface BoardListener {
+    //TODO remove size
     void onBoardUpdate(TreeSet<Field> fieldsWithValue, Field addedField, int size);
 }

@@ -148,3 +148,4 @@ buildNumber.properties
 .idea
 *.iml
 stale_outputs_checked
+logs/

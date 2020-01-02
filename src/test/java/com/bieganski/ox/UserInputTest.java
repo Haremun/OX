@@ -1,5 +1,7 @@
 package com.bieganski.ox;
 
+import com.bieganski.ox.user_interface.ConsoleInterface;
+import com.bieganski.ox.user_interface.UserInterface;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

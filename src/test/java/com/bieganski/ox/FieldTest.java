@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.stream.IntStream;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 
 public class FieldTest {
@@ -31,9 +30,21 @@ public class FieldTest {
         //Given
         Field field = new Field(position, Symbol.X);
         //When
-        boolean isOnGivenCoordinates = field.isOnPosition(position+1);
+        boolean isOnGivenCoordinates = field.isOnPosition(position + 1);
         //Then
         assertFalse(isOnGivenCoordinates);
+    }
+
+    @Test
+    public void testCalculateCorrectDistanceToOtherField() {
+        //Given
+        int distanceExpected = 2;
+        Field field = new Field(13, null);
+        Field field2 = new Field(15, null);
+        //When
+        int distanceActual = field.distanceTo(field2);
+        //Then
+        assertEquals(distanceActual, distanceExpected);
     }
 
 }
