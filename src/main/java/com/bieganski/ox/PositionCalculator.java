@@ -11,7 +11,7 @@ class PositionCalculator {
 //TODO maybe parser?
     int calculatePosition(String userInput) {
         if (!positionValidator.checkString(userInput))
-            throw new IllegalArgumentException("There is no such position!");
+            return - 1;
         String[] coordinates = userInput.split(" ");
         String row = coordinates[0];
         String column = coordinates[1];

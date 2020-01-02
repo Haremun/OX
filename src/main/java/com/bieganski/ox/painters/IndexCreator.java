@@ -3,7 +3,7 @@ package com.bieganski.ox.painters;
 class IndexCreator {
     private int boardSide;
 
-    public IndexCreator(int boardSide) {
+    IndexCreator(int boardSide) {
         this.boardSide = boardSide;
     }
 
