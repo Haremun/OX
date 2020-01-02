@@ -20,8 +20,6 @@ class GameFlow implements Runnable, GameListener {
 
         players.add(Symbol.X);
         players.add(Symbol.O);
-// TODO factory method
-        initializeBoard();
     }
 
     private void initializeBoard() {
@@ -34,9 +32,14 @@ class GameFlow implements Runnable, GameListener {
 
     @Override
     public void run() {
+        initializeBoard();
+
         PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(), boardSize);
         currentSymbol = players.get(0);
+
         makeTurn(positionCalculator);
+
+
     }
 
     private void makeTurn(PositionCalculator positionCalculator) {
@@ -53,7 +56,6 @@ class GameFlow implements Runnable, GameListener {
         boolean added = board.addField(new Field(positionCalculator.calculatePosition(input), currentSymbol));
         if (!added) {
             askPlayerForInputAndPlaceSymbol(positionCalculator, currentSymbol);
-            //userInterface.println("There is no such position!");
         }
     }
 
@@ -64,5 +66,6 @@ class GameFlow implements Runnable, GameListener {
     @Override
     public void onWin() {
         win = true;
+        userInterface.println(String.format("Player %s wins!:", currentSymbol));
     }
 }
