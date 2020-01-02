@@ -8,7 +8,6 @@ public class HorizontalWinChecker implements WinChecker {
     @Override
     public boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
         int winSize = 3;
-
         TreeSet<Field> correct = new TreeSet<>();
         correct.add(addedField);
         Field field;
