@@ -8,7 +8,7 @@ class PositionCalculator {
         this.boardSize = boardSize;
         this.positionValidator = positionValidator;
     }
-
+//TODO maybe parser?
     int calculatePosition(String userInput) {
         if (!positionValidator.checkString(userInput))
             throw new IllegalArgumentException("There is no such position!");

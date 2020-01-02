@@ -13,7 +13,7 @@ public class HorizontalWinChecker implements WinChecker {
         correct.add(addedField);
         Field field;
         int counter = 0;
-
+//TODO DRY and too long
         while (correct.size() < winSize && counter < 2) {
             field = correct.last();
             Field nextField = fieldsWithValue.higher(field);
@@ -29,7 +29,7 @@ public class HorizontalWinChecker implements WinChecker {
     }
 
     private int appendFieldIfCorrect(Field currentField, Field nextField, TreeSet<Field> correct) {
-        if (checkFieldsAreNotNull(currentField, nextField) && isDistanceCorrectAndSymbolsAreEquals(currentField, nextField)) {
+        if (checkFieldsAreNotNull(currentField, nextField) && isDistanceCorrectAndSymbolsAreEqual(currentField, nextField)) {
             correct.add(nextField);
             return 0;
         }
@@ -40,7 +40,7 @@ public class HorizontalWinChecker implements WinChecker {
         return current != null && next != null;
     }
 
-    private boolean isDistanceCorrectAndSymbolsAreEquals(Field current, Field next) {
-        return current.distanceToField(next) <= 1 && current.areSymbolsEquals(next);
+    private boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
+        return current.distanceTo(next) <= 1 && current.areSymbolsEqual(next);
     }
 }

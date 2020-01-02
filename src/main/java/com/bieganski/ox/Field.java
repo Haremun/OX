@@ -20,11 +20,11 @@ public class Field implements Comparable<Field> {
         return 0 <= position && position < bounds;
     }
 
-    public boolean areSymbolsEquals(Field field) {
+    public boolean areSymbolsEqual(Field field) {
         return this.symbol.equals(field.symbol);
     }
 
-    public int distanceToField(Field field) {
+    public int distanceTo(Field field) {
         return Math.abs(this.position - field.position);
     }
     @Override

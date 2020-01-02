@@ -1,7 +1,7 @@
 package com.bieganski.ox;
 
 import com.bieganski.ox.user_interface.UserInterface;
-import com.bieganski.ox.win_checkers.ConsoleJudge;
+import com.bieganski.ox.win_checkers.Judge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ class GameFlow implements Runnable {
 
         players.add(Symbol.X);
         players.add(Symbol.O);
-
+// TODO factory method
         initializeBoard();
     }
 
@@ -27,7 +27,7 @@ class GameFlow implements Runnable {
         board = new Board(boardSize);
         board.addListener(userInterface);
         board.updateListeners();
-        board.addListener(new ConsoleJudge(boardSize));
+        board.addListener(new Judge(boardSize));
     }
 
     @Override
@@ -38,8 +38,9 @@ class GameFlow implements Runnable {
             userInterface.println("Input row and column:");
             String input = userInterface.askForInput();
             boolean added = board.addField(new Field(positionCalculator.calculatePosition(input), currentSymbol));
-            if (added)
+            if (added) {
                 currentSymbol = changePlayer(currentSymbol);
+            }
         }
     }
 

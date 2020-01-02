@@ -42,7 +42,7 @@ public class FieldTest {
         Field field = new Field(13, null);
         Field field2 = new Field(15, null);
         //When
-        int distanceActual = field.distanceToField(field2);
+        int distanceActual = field.distanceTo(field2);
         //Then
         assertEquals(distanceActual, distanceExpected);
     }

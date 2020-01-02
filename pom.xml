@@ -6,7 +6,7 @@
 
     <groupId>com.bieganski</groupId>
     <artifactId>ox</artifactId>
-    <version>0.1</version>
+    <version>0.5</version>
 
     <name>OX</name>
 
@@ -22,7 +22,7 @@
         <version.maven>3.6.3</version.maven>
         <version.plugin.maven.enforcer>3.0.0-M2</version.plugin.maven.enforcer>
 
-        <argumentA>15</argumentA>
+        <boardSize>15</boardSize>
     </properties>
 
     <dependencies>
@@ -95,11 +95,11 @@
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
-                                            <minimum>10%</minimum>
+                                            <minimum>50%</minimum>
                                         </limit>
                                         <limit>
                                             <counter>BRANCH</counter>
-                                            <minimum>10%</minimum>
+                                            <minimum>50%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -108,77 +108,72 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Enforce maven version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${version.plugin.maven.enforcer}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>${version.maven}</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Declare jar plugin -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.bieganski.ox.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- exec plugin to run jar with maven -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>maven</executable>
+                    <mainClass>com.bieganski.ox.App</mainClass>
+                    <arguments>
+                        <argument>${boardSize}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+            <!-- Jdepend -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+                <version>2.0</version>
+            </plugin>
+            <!-- Maven pmd -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.12.0</version>
+            </plugin>
         </plugins>
-
-        <pluginManagement>
-            <plugins>
-                <!-- Enforce maven version -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>${version.plugin.maven.enforcer}</version>
-                    <executions>
-                        <execution>
-                            <id>enforce-maven</id>
-                            <goals>
-                                <goal>enforce</goal>
-                            </goals>
-                            <configuration>
-                                <rules>
-                                    <requireMavenVersion>
-                                        <version>${version.maven}</version>
-                                    </requireMavenVersion>
-                                </rules>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <!-- Declare jar plugin -->
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <mainClass>com.bieganski.ox.App</mainClass>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <!-- exec plugin to run jar with maven -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.6.0</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <executable>maven</executable>
-                        <mainClass>com.bieganski.ox.App</mainClass>
-                        <arguments>
-                            <argument>${argumentA}</argument>
-                        </arguments>
-                    </configuration>
-                </plugin>
-                <!-- Jdepend -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>jdepend-maven-plugin</artifactId>
-                    <version>2.0</version>
-                </plugin>
-                <!-- Maven pmd -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.12.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
 

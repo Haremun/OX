@@ -6,7 +6,7 @@ import com.bieganski.ox.Field;
 import java.util.TreeSet;
 
 /**
- * Interface for judge classes
+ * Interface for win-check classes
  * @author Kamil Biegański
  */
 interface WinChecker {
