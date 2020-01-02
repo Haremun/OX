@@ -3,7 +3,7 @@ package com.bieganski.ox.painters;
 class IndexCreator {
     private int boardSide;
 
-    public IndexCreator(int boardSide) {
+    IndexCreator(int boardSide) {
         this.boardSide = boardSide;
     }
 
@@ -14,7 +14,7 @@ class IndexCreator {
         }
         stringBuilder.append("\n");
     }
-  
+
     void nextIndex(StringBuilder stringBuilder, int index) {
 
         if (index < 10)
@@ -24,7 +24,7 @@ class IndexCreator {
         else
             stringBuilder.append(String.format("%s", index));
     }
-  
+
     private String createSpaces() {
         return " ".repeat(3);
     }
