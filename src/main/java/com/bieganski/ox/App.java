@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 /**
  * Main class for OX application
+ *
  * @author Kamil Biegański
  */
 public class App {
@@ -17,12 +18,14 @@ public class App {
     public static void main(String[] args) {
 
         LOG.info("Application started");
-
+        // TODO Arguments validator
+        int board = args.length < 1 ? 10 : Integer.parseInt(args[0]);
+        LOG.info(board + "");
         Scanner scanner = new Scanner(System.in);
         UserInterface userInterface = new ConsoleInterface(scanner, System.out);
         userInterface.println("Tic tac toe!");
         //TODO: change const values ,create game setup
-        GameFlow gameFlow = new GameFlow(userInterface, Integer.parseInt(args[0]));
+        GameFlow gameFlow = new GameFlow(userInterface, board);
         new Thread(gameFlow).start();
     }
 }
