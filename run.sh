@@ -1,1 +1,1 @@
-java -jar target/ox-0.5.jar 30
+java -jar target/ox-?.?.jar 30

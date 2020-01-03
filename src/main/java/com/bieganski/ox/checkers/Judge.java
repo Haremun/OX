@@ -1,0 +1,45 @@
+package com.bieganski.ox.checkers;
+
+import com.bieganski.ox.App;
+import com.bieganski.ox.BoardListener;
+import com.bieganski.ox.GameListener;
+import com.bieganski.ox.model.Field;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+/**
+ * Board checker, Judge initialize win checkers
+ * to check if added symbol is winning move.
+ */
+public class Judge implements BoardListener {
+  private List<WinChecker> checkers = new ArrayList<>();
+  private int boardSize;
+
+  private GameListener gameListener;
+
+  /**
+   * Constructor for Judge class.
+   * @param gameListener - listener for notify about game result
+   * @param boardSize    - size of a board
+   */
+  public Judge(GameListener gameListener, int boardSize) {
+    this.gameListener = gameListener;
+    this.boardSize = boardSize;
+
+    checkers.add(new HorizontalWinChecker());
+  }
+
+  @Override
+  public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
+    if (checkWin(fieldsWithValue, addedField, boardSize)) {
+      App.LOG.info("Winner is found!");
+      gameListener.onWin();
+    }
+  }
+
+  private boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
+    return checkers.stream().anyMatch(x -> x.checkWin(fieldsWithValue, addedField, boardSize));
+  }
+}

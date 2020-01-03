@@ -1,73 +1,69 @@
 package com.bieganski.ox;
 
-import com.bieganski.ox.user_interface.UserInterface;
-import com.bieganski.ox.win_checkers.Judge;
+import com.bieganski.ox.checkers.Judge;
+import com.bieganski.ox.model.Field;
+import com.bieganski.ox.model.Symbol;
+import com.bieganski.ox.ui.UserInterface;
 
-import java.util.ArrayList;
-import java.util.List;
 
+class GameFlow implements GameListener {
+  private int boardSize;
+  private UserInterface userInterface;
+  private Board board;
+  private boolean gameStop = false;
+  private Symbol currentSymbol;
 
-class GameFlow implements Runnable, GameListener {
-    private int boardSize;
-    private UserInterface userInterface;
-    private Board board;
-    private List<Symbol> players = new ArrayList<>();
-    private Symbol currentSymbol;
-    private boolean win = false;
+  GameFlow(UserInterface userInterface, int boardSize) {
+    this.boardSize = boardSize;
+    this.userInterface = userInterface;
+  }
 
-    GameFlow(UserInterface userInterface, int boardSize) {
-        this.boardSize = boardSize;
-        this.userInterface = userInterface;
+  private void initializeBoard() {
+    board = new Board(boardSize);
+    board.addListener(userInterface);
+    board.updateListeners();
+    Judge judge = new Judge(this, boardSize);
+    board.addListener(judge);
+  }
 
-        players.add(Symbol.X);
-        players.add(Symbol.O);
+  void run() {
+    initializeBoard();
+    //TODO start player should be from game setup
+    currentSymbol = Symbol.values()[0];
+
+    makeTurn(currentSymbol);
+  }
+
+  private void makeTurn(Symbol currentSymbol) {
+    askPlayerForInputAndPlaceSymbol(currentSymbol);
+    if (!gameStop) {
+      currentSymbol = changePlayer(currentSymbol);
+      makeTurn(currentSymbol);
     }
+  }
 
-    private void initializeBoard() {
-        board = new Board(boardSize);
-        board.addListener(userInterface);
-        board.updateListeners();
-        Judge judge = new Judge(this, boardSize);
-        board.addListener(judge);
-
+  private void askPlayerForInputAndPlaceSymbol(Symbol currentSymbol) {
+    userInterface.println("Input row and column:");
+    int input = userInterface.askForPosition(boardSize);
+    if (!board.addField(
+        new Field(input, currentSymbol))) {
+      askPlayerForInputAndPlaceSymbol(currentSymbol);
     }
+  }
 
-    @Override
-    public void run() {
-        initializeBoard();
+  private Symbol changePlayer(Symbol currentSymbol) {
+    return currentSymbol == Symbol.X ? Symbol.O : Symbol.X;
+  }
 
-        PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(), boardSize);
-        currentSymbol = players.get(0);
+  @Override
+  public void onWin() {
+    gameStop = true;
+    userInterface.println(String.format("Player %s wins!:", currentSymbol));
+  }
 
-        makeTurn(positionCalculator);
-
-
-    }
-
-    private void makeTurn(PositionCalculator positionCalculator) {
-        askPlayerForInputAndPlaceSymbol(positionCalculator, currentSymbol);
-        if (!win) {
-            currentSymbol = changePlayer(currentSymbol);
-            makeTurn(positionCalculator);
-        }
-    }
-
-    private void askPlayerForInputAndPlaceSymbol(PositionCalculator positionCalculator, Symbol currentSymbol) {
-        userInterface.println("Input row and column:");
-        String input = userInterface.askForInput();
-        boolean added = board.addField(new Field(positionCalculator.calculatePosition(input), currentSymbol));
-        if (!added) {
-            askPlayerForInputAndPlaceSymbol(positionCalculator, currentSymbol);
-        }
-    }
-
-    private Symbol changePlayer(Symbol currentSymbol) {
-        return currentSymbol == Symbol.X ? Symbol.O : Symbol.X;
-    }
-
-    @Override
-    public void onWin() {
-        win = true;
-        userInterface.println(String.format("Player %s wins!:", currentSymbol));
-    }
+  @Override
+  public void onDraw() {
+    gameStop = true;
+    userInterface.println("Draw!");
+  }
 }

@@ -1,5 +1,6 @@
-package com.bieganski.ox;
+package com.bieganski.ox.ui;
 
+import com.bieganski.ox.ui.PositionValidator;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

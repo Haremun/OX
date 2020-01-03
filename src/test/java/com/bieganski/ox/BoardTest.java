@@ -1,5 +1,7 @@
 package com.bieganski.ox;
 
+import com.bieganski.ox.model.Field;
+import com.bieganski.ox.model.Symbol;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

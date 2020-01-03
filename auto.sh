@@ -1,9 +1,11 @@
-#!/usr/bin/expect -f
+#!/usr/bin/expect
  
-set timeout -1
 spawn ./run.sh
-expect "*Input row and column:\r" 
+#wait for printing board
+expect "*Input row and column:\r"
+#send row and column to app
 send -- "0 29\r"
+
 expect "*Input row and column:\r" 
 send -- "0 0\r"
 expect "*Input row and column:\r" 
