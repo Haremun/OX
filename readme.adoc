@@ -1,12 +1,27 @@
-OX
-------
+= OX
+
 Author: Kamil Biegański
 
-Version: 0.1
-
 To run project you have to use:
-- jdk version 11.0.5
-- maven version 3.6.3
 
-To build project simply run "mvn package" command, to make it work run "java -jar target/ox-0.1.jar"
+* jdk version 11.0.5+
+* maven version 3.6.3+
 
+=== Run
+To run program use commands:
+
+    mvn clean install
+    java -jar target/ox-0.5.jar
+
+=== Run End to end tests
+To run end to end tests you need install expect
+
+    sudo apt install expect
+    -or-
+    sudo apt-get install expect
+    -or for Red Hat-
+    sudo yum install expect
+
+Use following command to run test:
+
+    ./runAutoTest
