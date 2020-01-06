@@ -10,7 +10,7 @@ public interface GameListener {
   void onWin();
 
   /**
-   * Notify about draw
+   * Notify about draw.
    */
   void onDraw();
 }

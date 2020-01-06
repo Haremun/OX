@@ -22,8 +22,6 @@ class HorizontalWinChecker implements WinChecker {
       field = correct.first();
       nextField = fieldsWithValue.lower(field);
       counter = counter + appendFieldIfCorrect(field, nextField, correct);
-
-
     }
     return correct.size() >= winSize;
   }

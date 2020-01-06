@@ -5,7 +5,7 @@ import com.bieganski.ox.model.Field;
 import java.util.TreeSet;
 
 /**
- * Interface for win-check classes.
+ * Checks board for winning combination.
  *
  * @author Kamil Biegański
  */

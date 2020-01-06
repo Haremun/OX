@@ -15,9 +15,8 @@ class PositionCalculator {
    * Parsing user input to position on board.
    *
    * @param userInput - row and column provided by user
-   * @return parsed position,
-   * returns -1 when occurs problem with parsing
-   * what should be handled in board class
+   * @return parsed position, returns -1 when occurs
+   problem with parsing what should be handled in board class
    */
   int parseInt(String userInput) {
     if (!positionValidator.checkString(userInput)) {

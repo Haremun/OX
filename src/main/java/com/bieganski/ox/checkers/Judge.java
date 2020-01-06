@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- * Board checker, Judge initialize win checkers
- * to check if added symbol is winning move.
+ * Initialize and run win checkers to check if added symbol is winning move.
  */
 public class Judge implements BoardListener {
   private List<WinChecker> checkers = new ArrayList<>();
@@ -19,11 +18,6 @@ public class Judge implements BoardListener {
 
   private GameListener gameListener;
 
-  /**
-   * Constructor for Judge class.
-   * @param gameListener - listener for notify about game result
-   * @param boardSize    - size of a board
-   */
   public Judge(GameListener gameListener, int boardSize) {
     this.gameListener = gameListener;
     this.boardSize = boardSize;

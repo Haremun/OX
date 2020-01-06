@@ -1,7 +1,7 @@
 package com.bieganski.ox.model;
 
 /**
- * Field represents symbol O or X on given by user position.
+ * Field represents symbol O or X on a given by user position.
  */
 public class Field implements Comparable<Field> {
 
@@ -13,29 +13,19 @@ public class Field implements Comparable<Field> {
     this.symbol = symbol;
   }
 
-  /**
-   * Check if field is on given position.
-   * @param position - position to compare
-   * @return true if field is on given position
-   */
   public boolean isOnPosition(int position) {
     return this.position == position;
   }
 
   /**
-   * Check if field is in given bounds.
-   * @param bounds - bounds of board
-   * @return true if field position is in given bounds
+   * Check if field is on position between 0 and upper bound.
+   * @param upperBound - bound of board
+   * @return true if field position is between 0 and upper bound
    */
-  public boolean isInBounds(int bounds) {
-    return 0 <= position && position < bounds;
+  public boolean isInBounds(int upperBound) {
+    return 0 <= position && position < upperBound;
   }
 
-  /**
-   * Check if symbols of two fields are equal.
-   * @param field - field to compare
-   * @return true if symbols are equal
-   */
   public boolean areSymbolsEqual(Field field) {
     return this.symbol.equals(field.symbol);
   }

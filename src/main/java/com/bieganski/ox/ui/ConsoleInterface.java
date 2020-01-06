@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 /**
- * User interface for communication with player via console
+ * User interface for communication with player via console.
  */
 public class ConsoleInterface implements UserInterface {
   private Scanner scanner;
@@ -27,6 +27,7 @@ public class ConsoleInterface implements UserInterface {
   public String askForInput() {
     return scanner.nextLine();
   }
+
   //TODO remove boardSize
   @Override
   public int askForPosition(int boardSize) {
