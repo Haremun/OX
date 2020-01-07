@@ -1,7 +1,7 @@
 package com.bieganski.ox.model;
 
 /**
- * Field represents symbol O or X on a given by user position.
+ * Field contains symbol O or X and given by user position.
  */
 public class Field implements Comparable<Field> {
 

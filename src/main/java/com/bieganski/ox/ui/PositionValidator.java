@@ -4,6 +4,9 @@ import java.util.regex.Pattern;
 
 class PositionValidator implements Validator {
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean checkString(String textToValidate) {
     return Pattern

@@ -25,6 +25,9 @@ public class Judge implements BoardListener {
     checkers.add(new HorizontalWinChecker());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
     if (checkWin(fieldsWithValue, addedField, boardSize)) {

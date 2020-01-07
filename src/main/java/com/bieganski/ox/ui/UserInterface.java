@@ -3,7 +3,7 @@ package com.bieganski.ox.ui;
 import com.bieganski.ox.BoardListener;
 
 /**
- * Interface for communication with user.
+ * Communication with user.
  */
 public interface UserInterface extends BoardListener {
   /**

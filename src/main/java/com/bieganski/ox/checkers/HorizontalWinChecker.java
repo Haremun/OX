@@ -5,6 +5,9 @@ import com.bieganski.ox.model.Field;
 import java.util.TreeSet;
 
 class HorizontalWinChecker implements WinChecker {
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
     int winSize = 3;

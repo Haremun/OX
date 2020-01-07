@@ -18,17 +18,26 @@ public class ConsoleInterface implements UserInterface {
     this.out = printStream;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void println(Object object) {
     out.println(object);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String askForInput() {
     return scanner.nextLine();
   }
 
   //TODO remove boardSize
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int askForPosition(int boardSize) {
     PositionCalculator positionCalculator =
@@ -36,6 +45,9 @@ public class ConsoleInterface implements UserInterface {
     return positionCalculator.parseInt(askForInput());
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
     println(new ConsoleBoardPainter()

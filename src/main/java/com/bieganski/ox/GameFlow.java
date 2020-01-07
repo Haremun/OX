@@ -55,12 +55,18 @@ class GameFlow implements GameListener {
     return currentSymbol == Symbol.X ? Symbol.O : Symbol.X;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void onWin() {
     gameStop = true;
     userInterface.println(String.format("Player %s wins!:", currentSymbol));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void onDraw() {
     gameStop = true;
