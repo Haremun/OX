@@ -31,10 +31,15 @@ public class ConsoleInterface implements UserInterface {
    */
   @Override
   public String askForInput() {
-    return scanner.nextLine();
+    String input = scanner.nextLine();
+    if (input.equals("/q")) {
+      System.exit(0);
+    }
+    return input;
   }
 
   //TODO remove boardSize
+
   /**
    * {@inheritDoc}
    */
@@ -43,6 +48,16 @@ public class ConsoleInterface implements UserInterface {
     PositionCalculator positionCalculator =
         new PositionCalculator(new PositionValidator(), boardSize);
     return positionCalculator.parseInt(askForInput());
+  }
+
+  @Override
+  public int askForPositiveNumber() {
+    try {
+      return Integer.parseInt(askForInput());
+    } catch (NumberFormatException ex) {
+      return -1;
+    }
+
   }
 
   /**

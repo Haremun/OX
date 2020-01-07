@@ -28,6 +28,10 @@ class Board {
     return true;
   }
 
+  void cleanBoard() {
+    occupiedFields.clear();
+  }
+
   void addListener(BoardListener listener) {
     listeners.add(listener);
   }
