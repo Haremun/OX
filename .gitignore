@@ -149,3 +149,4 @@ buildNumber.properties
 *.iml
 stale_outputs_checked
 logs/
+log.txt

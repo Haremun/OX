@@ -1,5 +1,7 @@
-package com.bieganski.ox;
+package com.bieganski.ox.ui;
 
+import com.bieganski.ox.ui.PositionCalculator;
+import com.bieganski.ox.ui.PositionValidator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -28,18 +30,8 @@ public class PositionCalculatorTest {
         PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(), 10);
         int expected = 33; //row * size + column
         //When
-        int actual = positionCalculator.calculatePosition("3 3");
+        int actual = positionCalculator.parseInt("3 3");
         //Then
         Assert.assertEquals(actual, expected);
-    }
-
-    @Test(expectedExceptions = IllegalArgumentException.class,
-            dataProvider = "badValues")
-    public void testCalculateBadValueShouldThrowException(String userInput) throws IllegalArgumentException {
-        //Given
-        PositionCalculator positionCalculator = new PositionCalculator(new PositionValidator(), 10);
-        //When
-        positionCalculator.calculatePosition(userInput);
-        //Then throws
     }
 }

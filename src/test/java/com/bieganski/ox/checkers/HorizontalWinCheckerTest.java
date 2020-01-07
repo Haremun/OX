@@ -1,6 +1,7 @@
-package com.bieganski.ox;
+package com.bieganski.ox.checkers;
 
-import com.bieganski.ox.win_checkers.HorizontalWinChecker;
+import com.bieganski.ox.model.Field;
+import com.bieganski.ox.model.Symbol;
 import org.testng.annotations.Test;
 
 import java.util.TreeSet;
