@@ -21,8 +21,11 @@ public class Judge implements BoardListener {
   public Judge(GameListener gameListener, int boardSize) {
     this.gameListener = gameListener;
     this.boardSize = boardSize;
-
-    checkers.add(new HorizontalWinChecker());
+    //TODO Think about one class with functional interfaces
+    checkers.add(new HorizontalWinChecker(boardSize, 3));
+    checkers.add(new VerticalWinChecker(boardSize, 3));
+    checkers.add(new SlantWinChecker(boardSize, 3));
+    checkers.add(new ReverseSlantWinChecker(boardSize, 3));
   }
 
   /**
@@ -34,9 +37,13 @@ public class Judge implements BoardListener {
       App.LOG.info("Winner is found!");
       gameListener.onWin();
     }
+    if (fieldsWithValue.size() == size * size) {
+      App.LOG.info("Draw! All fields all occupied");
+      gameListener.onDraw();
+    }
   }
 
   private boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    return checkers.stream().anyMatch(x -> x.checkWin(fieldsWithValue, addedField, boardSize));
+    return checkers.stream().anyMatch(x -> x.checkWin(fieldsWithValue, addedField));
   }
 }
