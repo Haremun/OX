@@ -21,11 +21,11 @@ public class Judge implements BoardListener {
   public Judge(GameListener gameListener, int boardSize) {
     this.gameListener = gameListener;
     this.boardSize = boardSize;
-
-    checkers.add(new HorizontalWinChecker());
-    checkers.add(new VerticalWinChecker());
-    checkers.add(new SlantWinChecker());
-    checkers.add(new ReverseSlantWinChecker());
+    //TODO Think about one class with functional interfaces
+    checkers.add(new HorizontalWinChecker(boardSize, 3));
+    checkers.add(new VerticalWinChecker(boardSize, 3));
+    checkers.add(new SlantWinChecker(boardSize, 3));
+    checkers.add(new ReverseSlantWinChecker(boardSize, 3));
   }
 
   /**
@@ -33,7 +33,6 @@ public class Judge implements BoardListener {
    */
   @Override
   public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    //TODO Remove 4 classes
     if (checkWin(fieldsWithValue, addedField, boardSize)) {
       App.LOG.info("Winner is found!");
       gameListener.onWin();
@@ -45,6 +44,6 @@ public class Judge implements BoardListener {
   }
 
   private boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    return checkers.stream().anyMatch(x -> x.checkWin(fieldsWithValue, addedField, boardSize));
+    return checkers.stream().anyMatch(x -> x.checkWin(fieldsWithValue, addedField));
   }
 }

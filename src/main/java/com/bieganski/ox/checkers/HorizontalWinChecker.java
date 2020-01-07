@@ -4,13 +4,16 @@ import com.bieganski.ox.model.Field;
 
 import java.util.TreeSet;
 
-class HorizontalWinChecker implements WinChecker {
+class HorizontalWinChecker extends WinChecker {
+  HorizontalWinChecker(int boardSize, int winSize) {
+    super(boardSize, winSize);
+  }
+
   /**
    * {@inheritDoc}
    */
   @Override
-  public boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    int winSize = 3;
+  boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField) {
     TreeSetHelper helper = new TreeSetHelper(fieldsWithValue);
     TreeSet<Field> correct = new TreeSet<>();
     correct.add(addedField);
@@ -19,7 +22,6 @@ class HorizontalWinChecker implements WinChecker {
 
     Field nextField;
     Field field;
-    //TODO DRY and too long
     while (correct.size() < winSize && !(!upper && !lower)) {
 
       if (upper) {
@@ -36,20 +38,8 @@ class HorizontalWinChecker implements WinChecker {
     return correct.size() >= winSize;
   }
 
-  private boolean appendFieldIfCorrect(Field currentField, Field nextField, TreeSet<Field> correct) {
-    if (checkFieldsAreNotNull(currentField, nextField)
-        && isDistanceCorrectAndSymbolsAreEqual(currentField, nextField)) {
-      correct.add(nextField);
-      return true;
-    }
-    return false;
-  }
-
-  private boolean checkFieldsAreNotNull(Field current, Field next) {
-    return current != null && next != null;
-  }
-
-  private boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
-    return current.areSymbolsEqual(next) && current.hashCode() / 3 == next.hashCode() / 3;
+  protected boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
+    return current.areSymbolsEqual(next)
+        && current.hashCode() / boardSize == next.hashCode() / boardSize;
   }
 }

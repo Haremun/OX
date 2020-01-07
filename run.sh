@@ -1,1 +1,1 @@
-java -jar target/ox-?.?.jar 3
+java -jar target/ox-?.???.jar 3

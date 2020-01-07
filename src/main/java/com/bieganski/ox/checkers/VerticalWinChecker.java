@@ -5,10 +5,13 @@ import com.bieganski.ox.model.Field;
 
 import java.util.TreeSet;
 
-public class VerticalWinChecker implements WinChecker {
+public class VerticalWinChecker extends WinChecker {
+  VerticalWinChecker(int boardSize, int winSize) {
+    super(boardSize, winSize);
+  }
+
   @Override
-  public boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    int winSize = 3;
+  boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField) {
     TreeSetHelper helper = new TreeSetHelper(fieldsWithValue);
     TreeSet<Field> correct = new TreeSet<>();
     correct.add(addedField);
@@ -17,18 +20,16 @@ public class VerticalWinChecker implements WinChecker {
 
     Field nextField;
     Field field;
-    //TODO DRY and too long
-    //TODO Bug with win in different rows
     while (correct.size() < winSize && !(!upper && !lower)) {
 
       if (upper) {
         field = correct.last();
-        nextField = helper.getHigherField(field, field.hashCode() + size);
+        nextField = helper.getHigherField(field, field.hashCode() + boardSize);
         upper = appendFieldIfCorrect(field, nextField, correct);
       }
       if (lower) {
         field = correct.first();
-        nextField = helper.getLowerField(field, field.hashCode() - size);
+        nextField = helper.getLowerField(field, field.hashCode() - boardSize);
         lower = appendFieldIfCorrect(field, nextField, correct);
       }
       App.LOG.info(upper + " " + lower);
@@ -36,20 +37,7 @@ public class VerticalWinChecker implements WinChecker {
     return correct.size() >= winSize;
   }
 
-  private boolean appendFieldIfCorrect(Field currentField, Field nextField, TreeSet<Field> correct) {
-    if (checkFieldsAreNotNull(currentField, nextField)
-        && isDistanceCorrectAndSymbolsAreEqual(currentField, nextField)) {
-      correct.add(nextField);
-      return true;
-    }
-    return false;
-  }
-
-  private boolean checkFieldsAreNotNull(Field current, Field next) {
-    return current != null && next != null;
-  }
-
-  private boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
+  protected boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
     return current.areSymbolsEqual(next);
   }
 }
