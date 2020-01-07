@@ -23,6 +23,9 @@ public class Judge implements BoardListener {
     this.boardSize = boardSize;
 
     checkers.add(new HorizontalWinChecker());
+    checkers.add(new VerticalWinChecker());
+    checkers.add(new SlantWinChecker());
+    checkers.add(new ReverseSlantWinChecker());
   }
 
   /**
@@ -30,9 +33,14 @@ public class Judge implements BoardListener {
    */
   @Override
   public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
+    //TODO Remove 4 classes
     if (checkWin(fieldsWithValue, addedField, boardSize)) {
       App.LOG.info("Winner is found!");
       gameListener.onWin();
+    }
+    if (fieldsWithValue.size() == size * size) {
+      App.LOG.info("Draw! All fields all occupied");
+      gameListener.onDraw();
     }
   }
 

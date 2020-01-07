@@ -4,10 +4,7 @@ import com.bieganski.ox.model.Field;
 
 import java.util.TreeSet;
 
-class HorizontalWinChecker implements WinChecker {
-  /**
-   * {@inheritDoc}
-   */
+public class SlantWinChecker implements WinChecker {
   @Override
   public boolean checkWin(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
     int winSize = 3;
@@ -24,12 +21,12 @@ class HorizontalWinChecker implements WinChecker {
 
       if (upper) {
         field = correct.last();
-        nextField = helper.getHigherField(field, field.hashCode() + 1);
+        nextField = helper.getHigherField(field, field.hashCode() + size + 1);
         upper = appendFieldIfCorrect(field, nextField, correct);
       }
       if (lower) {
         field = correct.first();
-        nextField = helper.getLowerField(field, field.hashCode() - 1);
+        nextField = helper.getLowerField(field, field.hashCode() - size - 1);
         lower = appendFieldIfCorrect(field, nextField, correct);
       }
     }
@@ -50,6 +47,6 @@ class HorizontalWinChecker implements WinChecker {
   }
 
   private boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
-    return current.areSymbolsEqual(next) && current.hashCode() / 3 == next.hashCode() / 3;
+    return current.areSymbolsEqual(next) && (current.hashCode() / 3) != (next.hashCode() / 3);
   }
 }
