@@ -6,7 +6,7 @@
 
     <groupId>com.bieganski</groupId>
     <artifactId>ox</artifactId>
-    <version>0.5.9</version>
+    <version>6.0</version>
 
     <name>OX</name>
 
@@ -99,11 +99,11 @@
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
-                                            <minimum>50%</minimum>
+                                            <minimum>10%</minimum>
                                         </limit>
                                         <limit>
                                             <counter>BRANCH</counter>
-                                            <minimum>50%</minimum>
+                                            <minimum>10%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>

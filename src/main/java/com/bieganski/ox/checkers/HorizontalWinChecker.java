@@ -38,8 +38,8 @@ class HorizontalWinChecker extends WinChecker {
     return correct.size() >= winSize;
   }
 
-  protected boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
-    return current.areSymbolsEqual(next)
-        && current.hashCode() / boardSize == next.hashCode() / boardSize;
+  @Override
+  protected boolean isRowCorrect(Field current, Field next) {
+    return current.hashCode() / boardSize == next.hashCode() / boardSize;
   }
 }

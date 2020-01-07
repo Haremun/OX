@@ -31,14 +31,14 @@ class GameFlow implements GameListener {
     //TODO start player should be from game setup
     currentSymbol = Symbol.values()[0];
 
-    makeTurn();
+    nextTurn();
   }
 
-  private void makeTurn() {
+  private void nextTurn() {
     askPlayerForInputAndPlaceSymbol(currentSymbol);
     if (!gameStop) {
       currentSymbol = changePlayer(currentSymbol);
-      makeTurn();
+      nextTurn();
     }
   }
 

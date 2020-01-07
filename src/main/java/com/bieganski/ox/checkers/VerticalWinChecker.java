@@ -36,8 +36,4 @@ public class VerticalWinChecker extends WinChecker {
     }
     return correct.size() >= winSize;
   }
-
-  protected boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next) {
-    return current.areSymbolsEqual(next);
-  }
 }

@@ -19,7 +19,8 @@ abstract class WinChecker {
   protected boolean appendFieldIfCorrect(
       Field currentField, Field nextField, TreeSet<Field> correct) {
     if (checkFieldsAreNotNull(currentField, nextField)
-        && isDistanceCorrectAndSymbolsAreEqual(currentField, nextField)) {
+        && currentField.areSymbolsEqual(nextField)
+        && isRowCorrect(currentField, nextField)) {
       correct.add(nextField);
       return true;
     }
@@ -30,5 +31,15 @@ abstract class WinChecker {
     return current != null && next != null;
   }
 
-  protected abstract boolean isDistanceCorrectAndSymbolsAreEqual(Field current, Field next);
+  /**
+   * You can override this function when checker
+   * have spacial requirements about rows.
+   * @param current - actually checked field
+   * @param next    - next filed to check
+   * @return <code>true</code> if row of next field is correct or
+   * <code>false</code> when rows aren't in correct rows
+   */
+  protected boolean isRowCorrect(Field current, Field next) {
+    return true;
+  }
 }
