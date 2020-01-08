@@ -37,6 +37,16 @@ class GameFlow implements GameListener {
     userInterface.println("Game Over!");
   }
 
+  void run(int rounds) {
+    initializeBoard();
+    currentSymbol = gameSettings.getStartSymbol();
+    for (int i = 1; i <= rounds; i++) {
+      startRound(i);
+      nextTurn();
+    }
+    userInterface.println("Game Over!");
+  }
+
   private void startRound(int index) {
     userInterface.println(String.format("Round %d", index));
     board.cleanBoard();

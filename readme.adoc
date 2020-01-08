@@ -24,4 +24,4 @@ To run end to end tests you need install expect
 
 Use following command to run test:
 
-    ./runAutoTest
+    ./test.sh #ARGUMENT(horizontal, vertical, diagonal, rdiagonal)

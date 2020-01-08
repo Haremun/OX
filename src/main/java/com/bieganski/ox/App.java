@@ -34,13 +34,15 @@ public final class App {
     userInterface.println("Tic tac toe!");
     userInterface.println("Use '/q' command to leave");
 
-
     GameSettings gameSettings = new GameSettings();
     gameSettings.init(userInterface);
 
-
     LOG.info(gameSettings.toString());
+    if (args.length == 0) {
+      new GameFlow(userInterface, gameSettings).run();
+    } else {
+      new GameFlow(userInterface, gameSettings).run(1);
+    }
 
-    new GameFlow(userInterface, gameSettings).run();
   }
 }
