@@ -7,10 +7,11 @@ import java.util.TreeSet;
 class TreeSetHelper {
   private TreeSet<Field> fields;
 
-  public TreeSetHelper(TreeSet<Field> fields) {
+  TreeSetHelper(TreeSet<Field> fields) {
     this.fields = fields;
   }
 
+  //TODO One function instead of higher and lower
   Field getHigherField(Field field, int position) {
     Field next = fields.higher(field);
 

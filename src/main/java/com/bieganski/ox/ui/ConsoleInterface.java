@@ -13,6 +13,8 @@ public class ConsoleInterface implements UserInterface {
   private Scanner scanner;
   private PrintStream out;
 
+  private static final String EXIT = "/q";
+
   public ConsoleInterface(Scanner scanner, PrintStream printStream) {
     this.scanner = scanner;
     this.out = printStream;
@@ -31,10 +33,15 @@ public class ConsoleInterface implements UserInterface {
    */
   @Override
   public String askForInput() {
-    return scanner.nextLine();
+    String input = scanner.nextLine();
+    if (input.equals(EXIT)) {
+      System.exit(0);
+    }
+    return input;
   }
 
   //TODO remove boardSize
+
   /**
    * {@inheritDoc}
    */
@@ -45,12 +52,21 @@ public class ConsoleInterface implements UserInterface {
     return positionCalculator.parseInt(askForInput());
   }
 
+  @Override
+  public int askForPositiveNumber() {
+    try {
+      return Integer.parseInt(askForInput());
+    } catch (NumberFormatException ex) {
+      return -1;
+    }
+
+  }
+
   /**
    * {@inheritDoc}
    */
   @Override
   public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    println(new ConsoleBoardPainter()
-        .paintBoard(fieldsWithValue, size));
+    println(new ConsoleBoardPainter(size).paintBoard(fieldsWithValue));
   }
 }

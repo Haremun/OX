@@ -27,4 +27,6 @@ public interface UserInterface extends BoardListener {
    * @return calculated position
    */
   int askForPosition(int boardSize);
+
+  int askForPositiveNumber();
 }

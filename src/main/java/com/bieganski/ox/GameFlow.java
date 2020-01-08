@@ -2,36 +2,57 @@ package com.bieganski.ox;
 
 import com.bieganski.ox.checkers.Judge;
 import com.bieganski.ox.model.Field;
+import com.bieganski.ox.model.GameSettings;
 import com.bieganski.ox.model.Symbol;
 import com.bieganski.ox.ui.UserInterface;
 
 
 class GameFlow implements GameListener {
-  private int boardSize;
   private UserInterface userInterface;
+  private GameSettings gameSettings;
   private Board board;
+
   private boolean gameStop = false;
   private Symbol currentSymbol;
 
-  GameFlow(UserInterface userInterface, int boardSize) {
-    this.boardSize = boardSize;
+  GameFlow(UserInterface userInterface, GameSettings gameSettings) {
+    this.gameSettings = gameSettings;
     this.userInterface = userInterface;
   }
 
   private void initializeBoard() {
-    board = new Board(boardSize);
+    board = new Board(gameSettings.getBoardSize());
     board.addListener(userInterface);
-    board.updateListeners();
-    Judge judge = new Judge(this, boardSize);
+    Judge judge = new Judge(this, gameSettings);
     board.addListener(judge);
   }
 
   void run() {
     initializeBoard();
-    //TODO start player should be from game setup
-    currentSymbol = Symbol.values()[0];
+    currentSymbol = gameSettings.getStartSymbol();
+    //Best of 3
+    for (int i = 1; i <= 3; i++) {
+      startRound(i);
+      nextTurn();
+    }
+    userInterface.println("Game Over!");
+  }
 
-    nextTurn();
+  void run(int rounds) {
+    initializeBoard();
+    currentSymbol = gameSettings.getStartSymbol();
+    for (int i = 1; i <= rounds; i++) {
+      startRound(i);
+      nextTurn();
+    }
+    userInterface.println("Game Over!");
+  }
+
+  private void startRound(int index) {
+    userInterface.println(String.format("Round %d", index));
+    board.cleanBoard();
+    board.updateListeners();
+    gameStop = false;
   }
 
   private void nextTurn() {
@@ -43,8 +64,9 @@ class GameFlow implements GameListener {
   }
 
   private void askPlayerForInputAndPlaceSymbol(Symbol currentSymbol) {
+    userInterface.println(String.format("%s moves", currentSymbol));
     userInterface.println("Input row and column:");
-    int input = userInterface.askForPosition(boardSize);
+    int input = userInterface.askForPosition(gameSettings.getBoardSize());
     if (!board.addField(
         new Field(input, currentSymbol))) {
       askPlayerForInputAndPlaceSymbol(currentSymbol);
@@ -61,7 +83,8 @@ class GameFlow implements GameListener {
   @Override
   public void onWin() {
     gameStop = true;
-    userInterface.println(String.format("Player %s wins!:", currentSymbol));
+    userInterface.println(String.format("Player %s wins!", currentSymbol));
+    userInterface.println("");
   }
 
   /**

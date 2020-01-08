@@ -30,11 +30,6 @@ public class Field implements Comparable<Field> {
     return this.symbol.equals(field.symbol);
   }
 
-  //TODO shouldn't calculate distance here
-  public int distanceTo(Field field) {
-    return Math.abs(this.position - field.position);
-  }
-
   @Override
   public int compareTo(Field field) {
     return Integer.compare(position, field.position);

@@ -6,9 +6,15 @@ import java.util.TreeSet;
 
 class ConsoleBoardPainter implements BoardPainter {
 
+  private int boardSide;
+
+  public ConsoleBoardPainter(int boardSide) {
+    this.boardSide = boardSide;
+  }
+
   //TODO: Too long function
   @Override
-  public String paintBoard(TreeSet<Field> fieldsWithValues, int boardSide) {
+  public String paintBoard(TreeSet<Field> fieldsWithValues) {
     StringBuilder stringBuilder = new StringBuilder();
     IndexCreator indexCreator = new IndexCreator(boardSide);
 

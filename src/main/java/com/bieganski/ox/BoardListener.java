@@ -15,7 +15,6 @@ public interface BoardListener {
    *
    * @param fieldsWithValue - collection of added fields to board
    * @param addedField      - actually added field
-   * @param size            - size of the board
    */
   void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size);
 }

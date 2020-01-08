@@ -1,7 +1,9 @@
 package com.bieganski.ox.checkers;
 
+import com.bieganski.ox.model.GameSettings;
 import com.bieganski.ox.model.Field;
 import com.bieganski.ox.model.Symbol;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.TreeSet;
@@ -17,7 +19,9 @@ public class HorizontalWinCheckerTest {
         TreeSet<Field> fields = new TreeSet<>();
         fields.add(new Field(0, Symbol.X));
         fields.add(new Field(2, Symbol.X));
-        HorizontalWinChecker checker = new HorizontalWinChecker(10, 3);
+        GameSettings gameSettings = new GameSettings();
+        gameSettings.setDefault();
+        HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
         boolean isWin = checker.checkWin(fields, new Field(1, Symbol.X));
         //Then
@@ -30,7 +34,9 @@ public class HorizontalWinCheckerTest {
         fields.add(new Field(0, Symbol.X));
         fields.add(new Field(2, Symbol.X));
         fields.add(new Field(3, Symbol.O));
-        HorizontalWinChecker checker = new HorizontalWinChecker(10, 3);
+        GameSettings gameSettings = new GameSettings();
+        gameSettings.setDefault();
+        HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
         boolean isWin = checker.checkWin(fields, new Field(1, Symbol.X));
         //Then
@@ -46,7 +52,9 @@ public class HorizontalWinCheckerTest {
         fields.add(new Field(3, Symbol.O));
         fields.add(new Field(4, Symbol.X));
         fields.add(new Field(5, Symbol.X));
-        HorizontalWinChecker checker = new HorizontalWinChecker(10, 3);
+        GameSettings gameSettings = new GameSettings();
+        gameSettings.setDefault();
+        HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
         boolean isWin = checker.checkWin(fields, new Field(6, Symbol.X));
         //Then
@@ -58,7 +66,9 @@ public class HorizontalWinCheckerTest {
         TreeSet<Field> fields = new TreeSet<>();
         fields.add(new Field(0, Symbol.X));
         fields.add(new Field(1, Symbol.O));
-        HorizontalWinChecker checker = new HorizontalWinChecker(10, 3);
+        GameSettings gameSettings = new GameSettings();
+        gameSettings.setDefault();
+        HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
         boolean isWin = checker.checkWin(fields, new Field(3, Symbol.X));
         //Then
