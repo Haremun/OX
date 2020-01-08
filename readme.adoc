@@ -11,7 +11,7 @@ To run project you have to use:
 To run program use commands:
 
     mvn clean install
-    java -jar target/ox-0.5.jar
+    java -jar target/ox-0.9.jar
 
 === Run End to end tests
 To run end to end tests you need install expect
