@@ -30,6 +30,7 @@ class GameFlow implements GameListener {
   void run() {
     initializeBoard();
     currentSymbol = gameSettings.getStartSymbol();
+    //Best of 3
     for (int i = 1; i <= 3; i++) {
       startRound(i);
       nextTurn();

@@ -13,6 +13,8 @@ public class ConsoleInterface implements UserInterface {
   private Scanner scanner;
   private PrintStream out;
 
+  private static final String EXIT = "/q";
+
   public ConsoleInterface(Scanner scanner, PrintStream printStream) {
     this.scanner = scanner;
     this.out = printStream;
@@ -32,7 +34,7 @@ public class ConsoleInterface implements UserInterface {
   @Override
   public String askForInput() {
     String input = scanner.nextLine();
-    if (input.equals("/q")) {
+    if (input.equals(EXIT)) {
       System.exit(0);
     }
     return input;

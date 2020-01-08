@@ -19,6 +19,9 @@ public class Judge implements BoardListener {
   private GameListener gameListener;
   private GameSettings gameSettings;
 
+  /**
+   * Initialize checkers.
+   */
   public Judge(GameListener gameListener, GameSettings gameSettings) {
     this.gameListener = gameListener;
     this.gameSettings = gameSettings;
