@@ -13,15 +13,15 @@ public class GameSettings {
   private Symbol startSymbol;
   private UserInterface userInterface;
 
-  public GameSettings(UserInterface userInterface) {
-    this.userInterface = userInterface;
+  public GameSettings() {
   }
 
   /**
    * Initialization of game. Player provides bord size,
    * number of character in win sequence and starting player
    */
-  public void init() {
+  public void init(UserInterface userInterface) {
+    this.userInterface = userInterface;
     userInterface.println("Set board side size:");
     boardSize = askForNumber("Wrong board size. Input value between 3 and 30",
         x -> (3 <= x && x <= 30));

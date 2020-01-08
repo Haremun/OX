@@ -65,7 +65,6 @@ public class ConsoleInterface implements UserInterface {
    */
   @Override
   public void onFieldAdded(TreeSet<Field> fieldsWithValue, Field addedField, int size) {
-    println(new ConsoleBoardPainter()
-        .paintBoard(fieldsWithValue, size));
+    println(new ConsoleBoardPainter(size).paintBoard(fieldsWithValue));
   }
 }

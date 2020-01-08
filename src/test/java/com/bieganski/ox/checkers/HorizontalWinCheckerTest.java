@@ -19,7 +19,7 @@ public class HorizontalWinCheckerTest {
         TreeSet<Field> fields = new TreeSet<>();
         fields.add(new Field(0, Symbol.X));
         fields.add(new Field(2, Symbol.X));
-        GameSettings gameSettings = new GameSettings(null);
+        GameSettings gameSettings = new GameSettings();
         gameSettings.setDefault();
         HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
@@ -34,7 +34,7 @@ public class HorizontalWinCheckerTest {
         fields.add(new Field(0, Symbol.X));
         fields.add(new Field(2, Symbol.X));
         fields.add(new Field(3, Symbol.O));
-        GameSettings gameSettings = new GameSettings(null);
+        GameSettings gameSettings = new GameSettings();
         gameSettings.setDefault();
         HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
@@ -52,7 +52,7 @@ public class HorizontalWinCheckerTest {
         fields.add(new Field(3, Symbol.O));
         fields.add(new Field(4, Symbol.X));
         fields.add(new Field(5, Symbol.X));
-        GameSettings gameSettings = new GameSettings(null);
+        GameSettings gameSettings = new GameSettings();
         gameSettings.setDefault();
         HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When
@@ -66,7 +66,7 @@ public class HorizontalWinCheckerTest {
         TreeSet<Field> fields = new TreeSet<>();
         fields.add(new Field(0, Symbol.X));
         fields.add(new Field(1, Symbol.O));
-        GameSettings gameSettings = new GameSettings(null);
+        GameSettings gameSettings = new GameSettings();
         gameSettings.setDefault();
         HorizontalWinChecker checker = new HorizontalWinChecker(gameSettings, () -> 1);
         //When

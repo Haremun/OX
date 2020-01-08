@@ -17,9 +17,11 @@ public class Judge implements BoardListener {
   private List<WinChecker> checkers = new ArrayList<>();
 
   private GameListener gameListener;
+  private GameSettings gameSettings;
 
   public Judge(GameListener gameListener, GameSettings gameSettings) {
     this.gameListener = gameListener;
+    this.gameSettings = gameSettings;
     //TODO Supplier in constructor or inside class?
     checkers.add(new HorizontalWinChecker(gameSettings, () -> 1));
     checkers.add(new VerticalWinChecker(gameSettings, gameSettings::getBoardSize));
@@ -35,7 +37,8 @@ public class Judge implements BoardListener {
     if (checkWin(fieldsWithValue, addedField)) {
       App.LOG.info("Winner is found!");
       gameListener.onWin();
-    } else if (fieldsWithValue.size() == size * size) {
+    } else if (fieldsWithValue.size()
+        == gameSettings.getBoardSize() * gameSettings.getBoardSize()) {
       App.LOG.info("Draw! All fields all occupied");
       gameListener.onDraw();
     }

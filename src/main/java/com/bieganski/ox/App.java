@@ -28,13 +28,17 @@ public final class App {
   public static void main(String[] args) {
 
     LOG.info("Application started");
+
     UserInterface userInterface = new ConsoleInterface(
         new Scanner(System.in), System.out);
     userInterface.println("Tic tac toe!");
     userInterface.println("Use '/q' command to leave");
 
-    GameSettings gameSettings = new GameSettings(userInterface);
-    gameSettings.init();
+
+    GameSettings gameSettings = new GameSettings();
+    gameSettings.init(userInterface);
+
+
     LOG.info(gameSettings.toString());
 
     new GameFlow(userInterface, gameSettings).run();
