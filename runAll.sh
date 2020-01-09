@@ -1,13 +1,20 @@
 #!/bin/bash
 SIZE=${1:-4}
-./script.sh $SIZE > cmd.txt
 IFS=$'\n'
-echo "" > horizontal.txt
+echo "" > results/horizontal.txt
 
-for cmd in $(./script.sh $SIZE)
+for cmd in $(./createHorizontal.sh $SIZE)
 do
-	./expect.sh "$cmd" >> horizontal.txt
+	./expect.sh "$cmd" >> results/horizontal.txt
 	echo .
-	echo "" >> horizontal.txt
-	echo "____________________" >> horizontal.txt
+	echo "" >> results/horizontal.txt
+	echo "____________________" >> results/horizontal.txt
+done
+
+for cmd in $(./createVertical.sh $SIZE)
+do
+	./expect.sh "$cmd" >> results/vertical.txt
+	echo .
+	echo "" >> results/vertical.txt
+	echo "____________________" >> results/vertical.txt
 done
