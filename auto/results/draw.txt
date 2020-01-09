@@ -1,0 +1,82 @@
+spawn ./run.sh 1
+Tic tac toe!
+Use '/q' command to leave
+Set board side size:
+3
+Set number of characters for win:
+3
+Choose starting symbol (X - 1 or Y - 2):
+1
+Round 1
+    0  1  2 
+ 0 [ ][ ][ ]
+ 1 [ ][ ][ ]
+ 2 [ ][ ][ ]
+X moves
+Input row and column:
+1
+X moves
+Input row and column:
+0 1
+    0  1  2 
+ 0 [ ][X][ ]
+ 1 [ ][ ][ ]
+ 2 [ ][ ][ ]
+O moves
+Input row and column:
+0 0
+    0  1  2 
+ 0 [O][X][ ]
+ 1 [ ][ ][ ]
+ 2 [ ][ ][ ]
+X moves
+Input row and column:
+1 0
+    0  1  2 
+ 0 [O][X][ ]
+ 1 [X][ ][ ]
+ 2 [ ][ ][ ]
+O moves
+Input row and column:
+0 2
+    0  1  2 
+ 0 [O][X][O]
+ 1 [X][ ][ ]
+ 2 [ ][ ][ ]
+X moves
+Input row and column:
+1 1
+    0  1  2 
+ 0 [O][X][O]
+ 1 [X][X][ ]
+ 2 [ ][ ][ ]
+O moves
+Input row and column:
+1 2
+    0  1  2 
+ 0 [O][X][O]
+ 1 [X][X][O]
+ 2 [ ][ ][ ]
+X moves
+Input row and column:
+2 0
+    0  1  2 
+ 0 [O][X][O]
+ 1 [X][X][O]
+ 2 [X][ ][ ]
+O moves
+Input row and column:
+2 1
+    0  1  2 
+ 0 [O][X][O]
+ 1 [X][X][O]
+ 2 [X][O][ ]
+X moves
+Input row and column:
+2 2
+    0  1  2 
+ 0 [O][X][O]
+ 1 [X][X][O]
+ 2 [X][O][X]
+Draw!
+Game Over!
