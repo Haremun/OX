@@ -7,15 +7,15 @@ function move {
  #ruch X i O
  for (( k=0; k<$WIN_SIZE; k++ ))
  do
-	 TMP="$TMP$(($3 + $2 + $k)) $(($2 - $k))."
-   row=$(($3 + $k + $2 + 1))
+	 TMP="$TMP$(($k + $3 + $2)) $(($1 - $k - $3 - 1))."
+	 row=$(($k + $3 + $2 + 1))
    if [ $row == $1 ]
    then
      row=0
    fi
    if [ $(($k+1)) != $WIN_SIZE ]
    then
-	   TMP="${TMP}$row $(($3 + $k))."
+	   TMP="${TMP}$row $(($1 - $k - $3 - 1))."
    fi
  done
  TMP=`echo $TMP | sed 's/\.$//g'`
@@ -27,29 +27,31 @@ function moveColumn {
  #ruch X i O
  for (( k=0; k<$WIN_SIZE; k++ ))
  do
-	 TMP="$TMP$(($3 + $k)) $(($1 + $3))."
-   row=$(($3 + $k + $2 + 1))
+   TMP="$TMP$(($k + $3)) $(($1 - $k - $3 - 1 - $2))."
+   row=$(($k + $3 + 1))
    if [ $row == $1 ]
    then
      row=0
    fi
    if [ $(($k+1)) != $WIN_SIZE ]
    then
-	   TMP="${TMP}$row $(($3 + $k + $2))."
+	   TMP="${TMP}$row $(($1 - $k - $3 - 1 - $2))."
    fi
  done
  TMP=`echo $TMP | sed 's/\.$//g'`
  echo $TMP
 }
 function hor {
-  #ilosc wierszy
-  for (( i = $(($1 - 1)); i>0; i-- ))
+  #ilosc wierszy\
+  echo=$1
+  index=$1
+  for (( i=0; i<$1; i++ ))
   do
-    WIN_ROW=$(($1 - 3 - i))
-    if [ $WIN_ROW < 0 ]
+    WIN_ROW=$(($1 - $i - 2))
+    if [ $WIN_ROW > 0 ]
     then
     #ilosc wygranych w row
-    for (( z = $WIN_ROW; z<0; z++ ))
+    for (( z=0; z<$WIN_ROW; z++ ))
     do
       move $1 $i $z
     done
@@ -58,13 +60,13 @@ function hor {
     fi
   done
   #ilosc kolumn
-  for (( i = $(($1 - 2)); i<0; i-- ))
+  for (( i=1; i<$1; i++ ))
   do
-    WIN_COLUMN=$(($1 - 3 - i))
-    if [ $WIN_COLUMN < 0 ]
+    WIN_COLUMN=$(($1 - $i - 2))
+    if [ $WIN_COLUMN > 0 ]
     then
     #ilosc wygranych w row
-    for (( z = $WIN_COLUMN; z<0; z++ ))
+    for (( z=0; z<$WIN_COLUMN; z++ ))
     do
       moveColumn $1 $i $z
     done
@@ -77,7 +79,7 @@ function hor {
 #rozmiar planszy
 for (( i=3; i<=$BOARD_MAX; i++ ))
 do
-  #echo "Rozmiar planszy: $i"
+  #echo "Rozmiar planszy: $i"i
   hor $i
 done
 
