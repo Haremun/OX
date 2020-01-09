@@ -1,0 +1,302 @@
+____________________
+____________________
+____________________
+____________________
+____________________
+spawn ./run.sh 1
+Tic tac toe!
+Use '/q' command to leave
+Set board side size:
+3
+Set number of characters for win:
+3
+Choose starting symbol (X - 1 or Y - 2):
+1
+Round 1
+    0  1  2 
+ 0 [ ][ ][ ]
+ 1 [ ][ ][ ]
+ 2 [ ][ ][ ]
+X moves
+Input row and column:
+1
+X moves
+Input row and column:
+0 0
+    0  1  2 
+ 0 [X][ ][ ]
+ 1 [ ][ ][ ]
+ 2 [ ][ ][ ]
+O moves
+Input row and column:
+1 0
+    0  1  2 
+ 0 [X][ ][ ]
+ 1 [O][ ][ ]
+ 2 [ ][ ][ ]
+X moves
+Input row and column:
+1 1
+    0  1  2 
+ 0 [X][ ][ ]
+ 1 [O][X][ ]
+ 2 [ ][ ][ ]
+O moves
+Input row and column:
+2 1
+    0  1  2 
+ 0 [X][ ][ ]
+ 1 [O][X][ ]
+ 2 [ ][O][ ]
+X moves
+Input row and column:
+2 2
+    0  1  2 
+ 0 [X][ ][ ]
+ 1 [O][X][ ]
+ 2 [ ][O][X]
+Player X wins!
+____________________
+spawn ./run.sh 1
+Tic tac toe!
+Use '/q' command to leave
+Set board side size:
+4
+Set number of characters for win:
+3
+Choose starting symbol (X - 1 or Y - 2):
+1
+Round 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+1
+X moves
+Input row and column:
+0 0
+    0  1  2  3 
+ 0 [X][ ][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+1 0
+    0  1  2  3 
+ 0 [X][ ][ ][ ]
+ 1 [O][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+1 1
+    0  1  2  3 
+ 0 [X][ ][ ][ ]
+ 1 [O][X][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+2 1
+    0  1  2  3 
+ 0 [X][ ][ ][ ]
+ 1 [O][X][ ][ ]
+ 2 [ ][O][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+2 2
+    0  1  2  3 
+ 0 [X][ ][ ][ ]
+ 1 [O][X][ ][ ]
+ 2 [ ][O][X][ ]
+ 3 [ ][ ][ ][ ]
+Player X wins!
+____________________
+spawn ./run.sh 1
+Tic tac toe!
+Use '/q' command to leave
+Set board side size:
+4
+Set number of characters for win:
+3
+Choose starting symbol (X - 1 or Y - 2):
+1
+Round 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+1
+X moves
+Input row and column:
+1 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][X][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+2 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][X][ ][ ]
+ 2 [ ][O][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+2 2
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][X][ ][ ]
+ 2 [ ][O][X][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+3 2
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][X][ ][ ]
+ 2 [ ][O][X][ ]
+ 3 [ ][ ][O][ ]
+X moves
+Input row and column:
+3 3
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][X][ ][ ]
+ 2 [ ][O][X][ ]
+ 3 [ ][ ][O][X]
+Player X wins!
+____________________
+spawn ./run.sh 1
+Tic tac toe!
+Use '/q' command to leave
+Set board side size:
+4
+Set number of characters for win:
+3
+Choose starting symbol (X - 1 or Y - 2):
+1
+Round 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+1
+X moves
+Input row and column:
+1 0
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [X][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+2 0
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [X][ ][ ][ ]
+ 2 [O][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+2 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [X][ ][ ][ ]
+ 2 [O][X][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+3 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [X][ ][ ][ ]
+ 2 [O][X][ ][ ]
+ 3 [ ][O][ ][ ]
+X moves
+Input row and column:
+3 2
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [X][ ][ ][ ]
+ 2 [O][X][ ][ ]
+ 3 [ ][O][X][ ]
+Player X wins!
+____________________
+spawn ./run.sh 1
+Tic tac toe!
+Use '/q' command to leave
+Set board side size:
+4
+Set number of characters for win:
+3
+Choose starting symbol (X - 1 or Y - 2):
+1
+Round 1
+    0  1  2  3 
+ 0 [ ][ ][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+1
+X moves
+Input row and column:
+0 1
+    0  1  2  3 
+ 0 [ ][X][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][ ][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+2 1
+    0  1  2  3 
+ 0 [ ][X][ ][ ]
+ 1 [ ][ ][ ][ ]
+ 2 [ ][O][ ][ ]
+ 3 [ ][ ][ ][ ]
+X moves
+Input row and column:
+1 2
+    0  1  2  3 
+ 0 [ ][X][ ][ ]
+ 1 [ ][ ][X][ ]
+ 2 [ ][O][ ][ ]
+ 3 [ ][ ][ ][ ]
+O moves
+Input row and column:
+3 2
+    0  1  2  3 
+ 0 [ ][X][ ][ ]
+ 1 [ ][ ][X][ ]
+ 2 [ ][O][ ][ ]
+ 3 [ ][ ][O][ ]
+X moves
+Input row and column:
+2 3
+    0  1  2  3 
+ 0 [ ][X][ ][ ]
+ 1 [ ][ ][X][ ]
+ 2 [ ][O][ ][X]
+ 3 [ ][ ][O][ ]
+Player X wins!
+
+Game Over!
+
+____________________
